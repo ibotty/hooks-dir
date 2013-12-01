@@ -10,6 +10,7 @@ module System.Process.Multiple
   , waitForAll
   , readStdErr
   , readStdOut
+  , StdStream(..)
   ) where
 
 import Control.Arrow ((***))
