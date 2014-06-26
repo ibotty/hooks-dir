@@ -7,6 +7,9 @@ module System.Process.Hooks
   , withArg
   , withEnv
   , withWorkingDir
+  , withStdOut
+  , withStdIn
+  , withStdErr
   , recurseDir
   , noRecurseDir
   , closeFDs
@@ -86,6 +89,15 @@ noRecurseDir f s = s { hDirs = (NonRecursive, f) : hDirs s }
 
 recurseDir :: FilePath -> HooksSpec -> HooksSpec
 recurseDir f s = s { hDirs = (Recursive, f) : hDirs s }
+
+withStdOut :: StdStream -> HooksSpec -> HooksSpec
+withStdOut stream s = s { hStdOut = stream }
+
+withStdErr :: StdStream -> HooksSpec -> HooksSpec
+withStdErr stream s = s { hStdErr = stream }
+
+withStdIn :: StdStream -> HooksSpec -> HooksSpec
+withStdIn stream s = s { hStdIn = stream }
 
 -- data ParallelFlag = Parallel | Sequential
 --   deriving (Show, Read, Eq, Ord, Bounded)

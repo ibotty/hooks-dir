@@ -1,5 +1,5 @@
 name:                hooks-dir
-version:             0.1.0.0
+version:             0.1.1.0
 synopsis:            run executables in a directory as hooks
 description:         run all executables in a directory with the same 
                      arguments and environment and collect the results.
