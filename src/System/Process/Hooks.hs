@@ -169,7 +169,7 @@ runAndWaitForHooksInDir dir args =
 -- | Read stdout from processdata waiting for the process to exit.
 -- It will yield an empty string if no stdout handle is given.
 readStdOut :: ProcessData -> IO Text
-readStdOut (ProcessData _ (_, _, Just stdout, handle)) =
+readStdOut (ProcessData _ (_, Just stdout, _, handle)) =
     waitForProcess handle >> TIO.hGetContents stdout
 readStdOut _ = return T.empty
 
